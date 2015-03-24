@@ -6,40 +6,41 @@
 
 #include "bibMario.h"
 
-
 int main ( int argc, char** argv )
 {
-    Uint8 *keys;
-    Uint32 timer, elapsed;
+    Uint32 temps, tempsEcoule;
     int numkeys;
-    float aX = 0, aY = 0, t1 = 0, t2 = 0, vD = 0;
+    Uint8 *toucheClavier;
+    float positionX = 3*RESX/4, positionY = 3*RESY/4;
+    float vitesseX = 0, vitesseY = 0;
+    float tempsDeceleration = 0, tempsAcceleration = 0;
+    float vitesseDeceleration = 0;
 
-    SDL_Init( SDL_INIT_VIDEO );
-    SDL_Surface* screen = SDL_SetVideoMode(RESX, RESY, 32, SDL_HWSURFACE|SDL_DOUBLEBUF);
+    SDL_Surface* fenetre;
+    initialisationFenetre( &fenetre );
+
     SDL_Surface* bmp = SDL_LoadBMP("cb.bmp");
 
     SDL_Rect dstrect;
-    dstrect.x = 2*RESX / 3;
-    dstrect.y = 2*RESY / 3;
 
-    keys = SDL_GetKeyState(&numkeys);
+    toucheClavier = SDL_GetKeyState(&numkeys);
 
-    bool done = false;
-    while (!keys[SDLK_ESCAPE]){
+    while ( !toucheClavier[SDLK_ESCAPE] ){
 
-        timer = SDL_GetTicks();
-        SDL_PumpEvents();
-        keys = SDL_GetKeyState(&numkeys);
+        initialisationTimer ( &temps );
 
-        MAJ( keys, &dstrect, &aX, &aY, &t1, &t2, &vD);
+        MAJ( toucheClavier, &positionX, &positionY, &vitesseX, &vitesseY, &tempsDeceleration, &tempsAcceleration, &vitesseDeceleration);
 
-        SDL_FillRect(screen,NULL,0);
-        SDL_BlitSurface(bmp, 0, screen, &dstrect);
-        SDL_Flip(screen);
+        dstrect.x = (int) positionX;
+        dstrect.y = (int) positionY;
 
-        elapsed = SDL_GetTicks() - timer;
-        if (elapsed<TIMER)
-            SDL_Delay(TIMER-elapsed);
+        effacerFenetre ( fenetre );
+
+        SDL_BlitSurface(bmp, 0, fenetre, &dstrect);
+
+        SDL_Flip(fenetre);
+
+        gestionTimer(temps, tempsEcoule);
     }
 
     SDL_FreeSurface(bmp);
