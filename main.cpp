@@ -1,3 +1,5 @@
+/** \file main.cpp **/
+
 #ifdef __cplusplus
     #include <cstdlib>
 #else

@@ -1,0 +1,349 @@
+\hypertarget{bib_mario_8cpp}{}\section{bib\+Mario.\+cpp File Reference}
+\label{bib_mario_8cpp}\index{bib\+Mario.\+cpp@{bib\+Mario.\+cpp}}
+
+
+Toutes les fonctions permettant de faire bouger le personnage.  
+
+
+{\ttfamily \#include \char`\"{}bib\+Mario.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{bib_mario_8cpp_ac15339ed1847acf414455e1c42f9c896}{est\+Au\+S\+O\+L} (float p\+Y)
+\begin{DoxyCompactList}\small\item\em Permet de savoir si le personnage touche le sol. \end{DoxyCompactList}\item 
+void \hyperlink{bib_mario_8cpp_aed25f1966eb002db7c78e2afc1dc22a0}{gestion\+Deceleration} (Uint8 $\ast$touche\+Clavier, float $\ast$v\+X, float $\ast$v\+D, float $\ast$temps\+Dec, float $\ast$temps\+Acc)
+\begin{DoxyCompactList}\small\item\em Permet de réduire la vitesse du personnage progressivement, afin de rendre le mouvement plus réaliste. \end{DoxyCompactList}\item 
+void \hyperlink{bib_mario_8cpp_a329e18449b090dfcf394636bc49a36b1}{gestion\+Touche\+Gauche} (Uint8 $\ast$touche\+Clavier, float $\ast$v\+X, float $\ast$v\+D, float $\ast$temps\+Dec, float $\ast$temps\+Acc)
+\begin{DoxyCompactList}\small\item\em Déplacer le personnage vers la gauche à l\textquotesingle{}aide de la flèche gauche. \end{DoxyCompactList}\item 
+void \hyperlink{bib_mario_8cpp_a2f56bd68b0db9dbed9d8c8e491da94b9}{gestion\+Touche\+Droite} (Uint8 $\ast$touche\+Clavier, float $\ast$v\+X, float $\ast$v\+D, float $\ast$temps\+Dec, float $\ast$temps\+Acc)
+\begin{DoxyCompactList}\small\item\em Déplacer le personnage vers la droite à l\textquotesingle{}aide de la flèche droite. \end{DoxyCompactList}\item 
+void \hyperlink{bib_mario_8cpp_aeba0ed329dde784f3aa8d6f948be9adc}{gestion\+Touche\+Espace} (Uint8 $\ast$touche\+Clavier, float $\ast$p\+Y, float $\ast$v\+Y)
+\begin{DoxyCompactList}\small\item\em Faire sauter le personnage. \end{DoxyCompactList}\item 
+void \hyperlink{bib_mario_8cpp_af26ea2549d8520ec5260c199a8a0eff7}{gestion\+Gravite} (Uint8 $\ast$touche\+Clavier, float p\+Y, float $\ast$v\+Y)
+\begin{DoxyCompactList}\small\item\em Faire retomber le personnage pour qu\textquotesingle{}il atteigne le sol. \end{DoxyCompactList}\item 
+void \hyperlink{bib_mario_8cpp_ae141e4d486e4809604b55f0bd901d7ac}{lire\+Touche\+Clavier} (Uint8 $\ast$touche\+Clavier)
+\begin{DoxyCompactList}\small\item\em Récupérer les entrées du clavier. \end{DoxyCompactList}\item 
+void \hyperlink{bib_mario_8cpp_a1836cfa24419f198b98f07e200aafaf2}{initialisation\+Fenetre} (S\+D\+L\+\_\+\+Surface $\ast$$\ast$fenetre)
+\begin{DoxyCompactList}\small\item\em Initialisation de la fenêtre S\+D\+L. \end{DoxyCompactList}\item 
+void \hyperlink{bib_mario_8cpp_a9466f88aed6ee972bf178eab61134fdf}{initialisation\+Timer} (Uint32 $\ast$temps)
+\begin{DoxyCompactList}\small\item\em Initialisation du temps. \end{DoxyCompactList}\item 
+void \hyperlink{bib_mario_8cpp_a0ec1c826687b3532845df91b792ab5cf}{gestion\+Timer} (Uint32 temps, Uint32 temps\+Ecoule)
+\begin{DoxyCompactList}\small\item\em Compte à rebours. \end{DoxyCompactList}\item 
+void \hyperlink{bib_mario_8cpp_aee79d293e177925f3e4c323a7fc96695}{effacer\+Fenetre} (S\+D\+L\+\_\+\+Surface $\ast$fenetre)
+\begin{DoxyCompactList}\small\item\em Libérer la fenêtre. \end{DoxyCompactList}\item 
+void \hyperlink{bib_mario_8cpp_a8fe8d935f2217ee0aa18c1d5709f0060}{M\+A\+J} (Uint8 $\ast$touche\+Clavier, float $\ast$p\+X, float $\ast$p\+Y, float $\ast$v\+X, float $\ast$v\+Y, float $\ast$temps\+Dec, float $\ast$temps\+Acc, float $\ast$v\+D)
+\begin{DoxyCompactList}\small\item\em Déplacer le personnage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{bib_mario_8cpp_a091d67b05b4855ec9da59869489b92a5}{}bool {\bfseries deceleration} = false\label{bib_mario_8cpp_a091d67b05b4855ec9da59869489b92a5}
+
+\item 
+\hypertarget{bib_mario_8cpp_a80ee3424f303b8fe8f780e955f8c9ffd}{}bool {\bfseries touche\+Espace\+Enfoncee} = false\label{bib_mario_8cpp_a80ee3424f303b8fe8f780e955f8c9ffd}
+
+\item 
+\hypertarget{bib_mario_8cpp_a5cdd356aebe16ed5163b4d420d6fff18}{}bool {\bfseries touche\+Gauche\+Enfoncee} = false\label{bib_mario_8cpp_a5cdd356aebe16ed5163b4d420d6fff18}
+
+\item 
+\hypertarget{bib_mario_8cpp_a7146dfb3e03c557a8e410fc10f03bb0b}{}bool {\bfseries touche\+Droite\+Enfoncee} = false\label{bib_mario_8cpp_a7146dfb3e03c557a8e410fc10f03bb0b}
+
+\item 
+\hypertarget{bib_mario_8cpp_a86637cf592de57e59d307aed6659da1d}{}float {\bfseries gravite\+Reduite} = 0.\+03\label{bib_mario_8cpp_a86637cf592de57e59d307aed6659da1d}
+
+\item 
+\hypertarget{bib_mario_8cpp_a2d15413b13ae7e5c94cca0cc00c7ca93}{}float {\bfseries gravite} = 0.\+1\label{bib_mario_8cpp_a2d15413b13ae7e5c94cca0cc00c7ca93}
+
+\item 
+\hypertarget{bib_mario_8cpp_a10942ec618ef918f1513f36547714f45}{}float {\bfseries v\+Y\+Saut} = 4.\+0\label{bib_mario_8cpp_a10942ec618ef918f1513f36547714f45}
+
+\item 
+\hypertarget{bib_mario_8cpp_a191b35065e85f2327febff6d45532253}{}float {\bfseries v\+X\+Max} = 3.\+0\label{bib_mario_8cpp_a191b35065e85f2327febff6d45532253}
+
+\item 
+\hypertarget{bib_mario_8cpp_a9d09ae86a8e5a2b315f1713873073905}{}float {\bfseries coeff\+Acc} = 50.\+0\label{bib_mario_8cpp_a9d09ae86a8e5a2b315f1713873073905}
+
+\item 
+\hypertarget{bib_mario_8cpp_a32261a4c8c2f9857e97699afef85ddca}{}float {\bfseries coeff\+Dec} = 100.\+0\label{bib_mario_8cpp_a32261a4c8c2f9857e97699afef85ddca}
+
+\item 
+\hypertarget{bib_mario_8cpp_a37910ef916be06a6555dccc0f0c301be}{}float {\bfseries coeff\+Frein} = 50.\+0\label{bib_mario_8cpp_a37910ef916be06a6555dccc0f0c301be}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Toutes les fonctions permettant de faire bouger le personnage. 
+
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\subsection{Function Documentation}
+\hypertarget{bib_mario_8cpp_aee79d293e177925f3e4c323a7fc96695}{}\index{bib\+Mario.\+cpp@{bib\+Mario.\+cpp}!effacer\+Fenetre@{effacer\+Fenetre}}
+\index{effacer\+Fenetre@{effacer\+Fenetre}!bib\+Mario.\+cpp@{bib\+Mario.\+cpp}}
+\subsubsection[{effacer\+Fenetre}]{\setlength{\rightskip}{0pt plus 5cm}void effacer\+Fenetre (
+\begin{DoxyParamCaption}
+\item[{S\+D\+L\+\_\+\+Surface $\ast$}]{fenetre}
+\end{DoxyParamCaption}
+)}\label{bib_mario_8cpp_aee79d293e177925f3e4c323a7fc96695}
+
+
+Libérer la fenêtre. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em fenetre} & Pointeur sur la fenêtre de travail \\
+\hline
+\end{DoxyParams}
+\hypertarget{bib_mario_8cpp_ac15339ed1847acf414455e1c42f9c896}{}\index{bib\+Mario.\+cpp@{bib\+Mario.\+cpp}!est\+Au\+S\+O\+L@{est\+Au\+S\+O\+L}}
+\index{est\+Au\+S\+O\+L@{est\+Au\+S\+O\+L}!bib\+Mario.\+cpp@{bib\+Mario.\+cpp}}
+\subsubsection[{est\+Au\+S\+O\+L}]{\setlength{\rightskip}{0pt plus 5cm}bool est\+Au\+S\+O\+L (
+\begin{DoxyParamCaption}
+\item[{float}]{p\+Y}
+\end{DoxyParamCaption}
+)}\label{bib_mario_8cpp_ac15339ed1847acf414455e1c42f9c896}
+
+
+Permet de savoir si le personnage touche le sol. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em p\+Y} & Ordonnée du personnage \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Revoit true si le personnage est à une ordonnée $>$= 2$\ast$\+R\+E\+S\+Y / 3 et false sinon 
+\end{DoxyReturn}
+\hypertarget{bib_mario_8cpp_aed25f1966eb002db7c78e2afc1dc22a0}{}\index{bib\+Mario.\+cpp@{bib\+Mario.\+cpp}!gestion\+Deceleration@{gestion\+Deceleration}}
+\index{gestion\+Deceleration@{gestion\+Deceleration}!bib\+Mario.\+cpp@{bib\+Mario.\+cpp}}
+\subsubsection[{gestion\+Deceleration}]{\setlength{\rightskip}{0pt plus 5cm}void gestion\+Deceleration (
+\begin{DoxyParamCaption}
+\item[{Uint8 $\ast$}]{touche\+Clavier, }
+\item[{float $\ast$}]{v\+X, }
+\item[{float $\ast$}]{v\+D, }
+\item[{float $\ast$}]{temps\+Dec, }
+\item[{float $\ast$}]{temps\+Acc}
+\end{DoxyParamCaption}
+)}\label{bib_mario_8cpp_aed25f1966eb002db7c78e2afc1dc22a0}
+
+
+Permet de réduire la vitesse du personnage progressivement, afin de rendre le mouvement plus réaliste. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em touche\+Clavier} & Pointeur sur la touche enfoncée \\
+\hline
+\mbox{\tt in,out}  & {\em v\+X} & Pointeur sur la vitesse horizontale du personnage \\
+\hline
+\mbox{\tt in,out}  & {\em v\+D} & Pointeur sur la vitesse de décélération \\
+\hline
+\mbox{\tt in,out}  & {\em temps\+Dec} & Pointeur sur la durée de décélération \\
+\hline
+\mbox{\tt in,out}  & {\em temps\+Acc} & Pointeur sur la durée d\textquotesingle{}accélération \\
+\hline
+\end{DoxyParams}
+\hypertarget{bib_mario_8cpp_af26ea2549d8520ec5260c199a8a0eff7}{}\index{bib\+Mario.\+cpp@{bib\+Mario.\+cpp}!gestion\+Gravite@{gestion\+Gravite}}
+\index{gestion\+Gravite@{gestion\+Gravite}!bib\+Mario.\+cpp@{bib\+Mario.\+cpp}}
+\subsubsection[{gestion\+Gravite}]{\setlength{\rightskip}{0pt plus 5cm}void gestion\+Gravite (
+\begin{DoxyParamCaption}
+\item[{Uint8 $\ast$}]{touche\+Clavier, }
+\item[{float}]{p\+Y, }
+\item[{float $\ast$}]{v\+Y}
+\end{DoxyParamCaption}
+)}\label{bib_mario_8cpp_af26ea2549d8520ec5260c199a8a0eff7}
+
+
+Faire retomber le personnage pour qu\textquotesingle{}il atteigne le sol. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em touche\+Clavier} & Pointeur sur la touche enfoncée \\
+\hline
+\mbox{\tt in}  & {\em p\+Y} & Ordonnée du personnage \\
+\hline
+\mbox{\tt in,out}  & {\em v\+Y} & Pointeur sur la vitesse verticale du personnage \\
+\hline
+\end{DoxyParams}
+\hypertarget{bib_mario_8cpp_a0ec1c826687b3532845df91b792ab5cf}{}\index{bib\+Mario.\+cpp@{bib\+Mario.\+cpp}!gestion\+Timer@{gestion\+Timer}}
+\index{gestion\+Timer@{gestion\+Timer}!bib\+Mario.\+cpp@{bib\+Mario.\+cpp}}
+\subsubsection[{gestion\+Timer}]{\setlength{\rightskip}{0pt plus 5cm}void gestion\+Timer (
+\begin{DoxyParamCaption}
+\item[{Uint32}]{temps, }
+\item[{Uint32}]{temps\+Ecoule}
+\end{DoxyParamCaption}
+)}\label{bib_mario_8cpp_a0ec1c826687b3532845df91b792ab5cf}
+
+
+Compte à rebours. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em temps} & Instant initial récupéré avec S\+D\+L\+\_\+\+Get\+Ticks \\
+\hline
+\mbox{\tt in}  & {\em temps\+Ecoule} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{bib_mario_8cpp_a2f56bd68b0db9dbed9d8c8e491da94b9}{}\index{bib\+Mario.\+cpp@{bib\+Mario.\+cpp}!gestion\+Touche\+Droite@{gestion\+Touche\+Droite}}
+\index{gestion\+Touche\+Droite@{gestion\+Touche\+Droite}!bib\+Mario.\+cpp@{bib\+Mario.\+cpp}}
+\subsubsection[{gestion\+Touche\+Droite}]{\setlength{\rightskip}{0pt plus 5cm}void gestion\+Touche\+Droite (
+\begin{DoxyParamCaption}
+\item[{Uint8 $\ast$}]{touche\+Clavier, }
+\item[{float $\ast$}]{v\+X, }
+\item[{float $\ast$}]{v\+D, }
+\item[{float $\ast$}]{temps\+Dec, }
+\item[{float $\ast$}]{temps\+Acc}
+\end{DoxyParamCaption}
+)}\label{bib_mario_8cpp_a2f56bd68b0db9dbed9d8c8e491da94b9}
+
+
+Déplacer le personnage vers la droite à l\textquotesingle{}aide de la flèche droite. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em touche\+Clavier} & Pointeur sur la touche enfoncée \\
+\hline
+\mbox{\tt in,out}  & {\em v\+X} & Pointeur sur la vitesse horizontale du personnage \\
+\hline
+\mbox{\tt in,out}  & {\em v\+D} & Pointeur sur la vitesse de décélération \\
+\hline
+\mbox{\tt in,out}  & {\em temps\+Dec} & Pointeur sur la durée de décélération \\
+\hline
+\mbox{\tt in,out}  & {\em temps\+Acc} & Pointeur sur la durée d\textquotesingle{}accélération \\
+\hline
+\end{DoxyParams}
+\hypertarget{bib_mario_8cpp_aeba0ed329dde784f3aa8d6f948be9adc}{}\index{bib\+Mario.\+cpp@{bib\+Mario.\+cpp}!gestion\+Touche\+Espace@{gestion\+Touche\+Espace}}
+\index{gestion\+Touche\+Espace@{gestion\+Touche\+Espace}!bib\+Mario.\+cpp@{bib\+Mario.\+cpp}}
+\subsubsection[{gestion\+Touche\+Espace}]{\setlength{\rightskip}{0pt plus 5cm}void gestion\+Touche\+Espace (
+\begin{DoxyParamCaption}
+\item[{Uint8 $\ast$}]{touche\+Clavier, }
+\item[{float $\ast$}]{p\+Y, }
+\item[{float $\ast$}]{v\+Y}
+\end{DoxyParamCaption}
+)}\label{bib_mario_8cpp_aeba0ed329dde784f3aa8d6f948be9adc}
+
+
+Faire sauter le personnage. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em touche\+Clavier} & Pointeur sur la touche de clavier enfoncée \\
+\hline
+\mbox{\tt in,out}  & {\em p\+Y} & Pointeur sur l\textquotesingle{}ordonnée du personnage \\
+\hline
+\mbox{\tt in,out}  & {\em v\+Y} & Pointeur sur la vitesse verticale du personnage \\
+\hline
+\end{DoxyParams}
+\hypertarget{bib_mario_8cpp_a329e18449b090dfcf394636bc49a36b1}{}\index{bib\+Mario.\+cpp@{bib\+Mario.\+cpp}!gestion\+Touche\+Gauche@{gestion\+Touche\+Gauche}}
+\index{gestion\+Touche\+Gauche@{gestion\+Touche\+Gauche}!bib\+Mario.\+cpp@{bib\+Mario.\+cpp}}
+\subsubsection[{gestion\+Touche\+Gauche}]{\setlength{\rightskip}{0pt plus 5cm}void gestion\+Touche\+Gauche (
+\begin{DoxyParamCaption}
+\item[{Uint8 $\ast$}]{touche\+Clavier, }
+\item[{float $\ast$}]{v\+X, }
+\item[{float $\ast$}]{v\+D, }
+\item[{float $\ast$}]{temps\+Dec, }
+\item[{float $\ast$}]{temps\+Acc}
+\end{DoxyParamCaption}
+)}\label{bib_mario_8cpp_a329e18449b090dfcf394636bc49a36b1}
+
+
+Déplacer le personnage vers la gauche à l\textquotesingle{}aide de la flèche gauche. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em touche\+Clavier} & Pointeur sur la touche enfoncée \\
+\hline
+\mbox{\tt in,out}  & {\em v\+X} & Pointeur sur la vitesse horizontale du personnage \\
+\hline
+\mbox{\tt in,out}  & {\em v\+D} & Pointeur sur la vitesse de décélération \\
+\hline
+\mbox{\tt in,out}  & {\em temps\+Dec} & Pointeur sur la durée de décélération \\
+\hline
+\mbox{\tt in,out}  & {\em temps\+Acc} & Pointeur sur la durée d\textquotesingle{}accélération \\
+\hline
+\end{DoxyParams}
+\hypertarget{bib_mario_8cpp_a1836cfa24419f198b98f07e200aafaf2}{}\index{bib\+Mario.\+cpp@{bib\+Mario.\+cpp}!initialisation\+Fenetre@{initialisation\+Fenetre}}
+\index{initialisation\+Fenetre@{initialisation\+Fenetre}!bib\+Mario.\+cpp@{bib\+Mario.\+cpp}}
+\subsubsection[{initialisation\+Fenetre}]{\setlength{\rightskip}{0pt plus 5cm}void initialisation\+Fenetre (
+\begin{DoxyParamCaption}
+\item[{S\+D\+L\+\_\+\+Surface $\ast$$\ast$}]{fenetre}
+\end{DoxyParamCaption}
+)}\label{bib_mario_8cpp_a1836cfa24419f198b98f07e200aafaf2}
+
+
+Initialisation de la fenêtre S\+D\+L. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em fenetre} & Double pointeur sur la fenêtre de travail \\
+\hline
+\end{DoxyParams}
+\hypertarget{bib_mario_8cpp_a9466f88aed6ee972bf178eab61134fdf}{}\index{bib\+Mario.\+cpp@{bib\+Mario.\+cpp}!initialisation\+Timer@{initialisation\+Timer}}
+\index{initialisation\+Timer@{initialisation\+Timer}!bib\+Mario.\+cpp@{bib\+Mario.\+cpp}}
+\subsubsection[{initialisation\+Timer}]{\setlength{\rightskip}{0pt plus 5cm}void initialisation\+Timer (
+\begin{DoxyParamCaption}
+\item[{Uint32 $\ast$}]{temps}
+\end{DoxyParamCaption}
+)}\label{bib_mario_8cpp_a9466f88aed6ee972bf178eab61134fdf}
+
+
+Initialisation du temps. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em temps} & Pointeur sur l\textquotesingle{}instant initial \\
+\hline
+\end{DoxyParams}
+\hypertarget{bib_mario_8cpp_ae141e4d486e4809604b55f0bd901d7ac}{}\index{bib\+Mario.\+cpp@{bib\+Mario.\+cpp}!lire\+Touche\+Clavier@{lire\+Touche\+Clavier}}
+\index{lire\+Touche\+Clavier@{lire\+Touche\+Clavier}!bib\+Mario.\+cpp@{bib\+Mario.\+cpp}}
+\subsubsection[{lire\+Touche\+Clavier}]{\setlength{\rightskip}{0pt plus 5cm}void lire\+Touche\+Clavier (
+\begin{DoxyParamCaption}
+\item[{Uint8 $\ast$}]{touche\+Clavier}
+\end{DoxyParamCaption}
+)}\label{bib_mario_8cpp_ae141e4d486e4809604b55f0bd901d7ac}
+
+
+Récupérer les entrées du clavier. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em touche\+Clavier} & Pointeur sur la touche de clavier à récupérer \\
+\hline
+\end{DoxyParams}
+\hypertarget{bib_mario_8cpp_a8fe8d935f2217ee0aa18c1d5709f0060}{}\index{bib\+Mario.\+cpp@{bib\+Mario.\+cpp}!M\+A\+J@{M\+A\+J}}
+\index{M\+A\+J@{M\+A\+J}!bib\+Mario.\+cpp@{bib\+Mario.\+cpp}}
+\subsubsection[{M\+A\+J}]{\setlength{\rightskip}{0pt plus 5cm}void M\+A\+J (
+\begin{DoxyParamCaption}
+\item[{Uint8 $\ast$}]{touche\+Clavier, }
+\item[{float $\ast$}]{p\+X, }
+\item[{float $\ast$}]{p\+Y, }
+\item[{float $\ast$}]{v\+X, }
+\item[{float $\ast$}]{v\+Y, }
+\item[{float $\ast$}]{temps\+Dec, }
+\item[{float $\ast$}]{temps\+Acc, }
+\item[{float $\ast$}]{v\+D}
+\end{DoxyParamCaption}
+)}\label{bib_mario_8cpp_a8fe8d935f2217ee0aa18c1d5709f0060}
+
+
+Déplacer le personnage. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em touche\+Clavier} & Pointeur sur la touche enfoncée \\
+\hline
+\mbox{\tt in,out}  & {\em p\+X} & Pointeur sur l\textquotesingle{}abscisse du personnage \\
+\hline
+\mbox{\tt in,out}  & {\em p\+Y} & Pointeur sur l\textquotesingle{}ordonnée du personnage \\
+\hline
+\mbox{\tt in,out}  & {\em v\+X} & Pointeur sur la vitesse horizontale du personnage \\
+\hline
+\mbox{\tt in,out}  & {\em v\+Y} & Pointeur sur la vitesse verticale du personnage \\
+\hline
+\mbox{\tt in,out}  & {\em temps\+Dec} & Pointeur sur un nombre repésentant le temps de la décélération \\
+\hline
+\mbox{\tt in,out}  & {\em temps\+Dec} & Pointeur sur un nombre repésentant le temps de l\textquotesingle{}accélération \\
+\hline
+\mbox{\tt in,out}  & {\em v\+D} & Pointeur sur la vitesse de décélération \\
+\hline
+\end{DoxyParams}
