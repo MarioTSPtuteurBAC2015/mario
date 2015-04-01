@@ -54,7 +54,6 @@ void gestionDeceleration ( Uint8* toucheClavier, float *vX, float *vD, float *te
         (*tempsDec)++;
     }
 }
-//prova
 
 /*************************************************************/
 /**
