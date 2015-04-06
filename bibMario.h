@@ -34,6 +34,14 @@ bool collisionSol(SDL_Rect* mur, SDL_Rect* perso);
 **/
 void gestionDeceleration ( Uint8* toucheClavier, float *vX, float *vD, float *tempsDec, float *tempsAcc );
 /**
+ * @brief testDeplacement On essaye de déplacer le personnage (ou plutot une copie) pour voir s'il rencontrerait un mur
+ * @param persoAvance Copie du perso (en avance sur le perso)
+ * @param mur Element de décor
+ * @param vX Vitesse horizontale du perso (récupérée avec gestionToucheGauche ou Droite)
+ * @param vY Vitesse verticale du perso (récupérée avec gestionToucheEspace)
+ */
+void testDeplacement(SDL_Rect *persoAvance, SDL_Rect *mur, float vX, float vY){
+/**
 \fn void gestionToucheGauche ( Uint8* toucheClavier, float *vX, float *vD, float *tempsDec, float *tempsAcc  )
 \brief Déplacer le personnage vers la gauche à l'aide de la flèche gauche.
 \param [in, out] toucheClavier Pointeur sur la touche enfoncée
