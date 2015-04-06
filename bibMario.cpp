@@ -51,6 +51,23 @@ void gestionDeceleration ( Uint8* toucheClavier, float *vX, float *vD, float *te
 
 /*************************************************************/
 
+void testDeplacement(SDL_Rect *persoAvance, SDL_Rect *mur, float vX, float vY){
+    SDL_Rect *test;
+    *test=*persoAvance;
+    test->x+=vX;
+    test->y+=vY;
+    if(collisionMur(mur, persoAvance)==0 && collisionSol(mur, persoAvance)==0)          //on peut déplacer le perso
+    {
+        *persoAvance=*test;
+    }
+}
+
+
+
+
+
+/*************************************************************/
+
 void gestionToucheGauche ( Uint8* toucheClavier, float *vX, float *vD, float *tempsDec, float *tempsAcc  ){
     if ( toucheClavier[SDLK_LEFT] && toucheDroiteEnfoncee == false ){
         if ( (int) *vX <= 0 ){
