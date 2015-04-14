@@ -1,7 +1,7 @@
 #include "bibMario.h"
 
 
-bool deceleration = false;
+bool deceleration = false;          //salut
 bool toucheEspaceEnfoncee = false;
 bool toucheGaucheEnfoncee = false;
 bool toucheDroiteEnfoncee = false;
