@@ -11,7 +11,7 @@ float graviteReduite = 0.03, gravite = 0.1, vYSaut = 4.0, vXMax = 3.0, coeffAcc 
 
 /*************************************************************/
 bool collisionMur( SDL_Rect* mur, SDL_Rect* perso){
-    if(mur->x <= perso->x + perso->w || mur->x + mur->w >= perso->x)
+    if( (mur->x) <= (perso->x + perso->w) || (mur->x + mur->w) >= (perso->x))
     {
         return true;
     }
@@ -22,7 +22,7 @@ bool collisionMur( SDL_Rect* mur, SDL_Rect* perso){
 
 bool collisionSol(SDL_Rect* mur, SDL_Rect* perso){
     auSol=(mur->y = perso -> y + perso ->h);
-    if(mur->y >= perso->y + perso->h || mur->y + mur->h <= perso->y)
+    if( (mur->y) >= (perso->y + perso->h) || (mur->y + mur->h) <= (perso->y))
     {
         return true;
     }
