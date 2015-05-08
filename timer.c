@@ -1,3 +1,14 @@
+/**
+ * \file timer.c
+ * \brief Programme pour afficher le temps passé
+ * \author Hee Sang Shin
+ * \version 1.0
+ * \date 8 mai 2015
+ *
+ * Programme qui affiche en haut à gauche le temps joué
+ *
+ */
+
 #ifdef __cplusplus
     #include <cstdlib>
 #else
@@ -7,6 +18,14 @@
 #include <stdio.h>
 #include <SDL/SDL.h>
 #include <SDL/SDL_ttf.h>
+
+/**
+ * \fn main
+ * \brief Tout pour le temps
+ *
+ * \param rien
+ * \return 0 si ça marche, 1 sinon
+ */
 
 int main ( int argc, char** argv )
 {
