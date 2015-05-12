@@ -1,7 +1,7 @@
 #include "bibMario.h"
 
 
-bool deceleration = false;          //salut
+bool deceleration = false;
 bool toucheEspaceEnfoncee = false;
 bool toucheGaucheEnfoncee = false;
 bool toucheDroiteEnfoncee = false;
@@ -10,8 +10,10 @@ bool auSol = false;
 float graviteReduite = 0.03, gravite = 0.1, vYSaut = 4.0, vXMax = 3.0, coeffAcc = 50.0, coeffDec = 100.0, coeffFrein = 50.0;
 
 /*************************************************************/
-bool collisionMur( SDL_Rect* mur, SDL_Rect* perso){
-    if( (mur->x) <= (perso->x + perso->w) || (mur->x + mur->w) >= (perso->x))
+
+bool collisionMur( SDL_Rect* mur, SDL_Rect* perso )
+{
+    if( (mur->x <= perso->x + perso->w) || (mur->x + mur->w >= perso->x))
     {
         return true;
     }
@@ -21,7 +23,7 @@ bool collisionMur( SDL_Rect* mur, SDL_Rect* perso){
 /*************************************************************/
 
 bool collisionSol(SDL_Rect* mur, SDL_Rect* perso){
-    auSol=(mur->y = perso -> y + perso ->h);
+
     if( (mur->y) >= (perso->y + perso->h) || (mur->y + mur->h) <= (perso->y))
     {
         return true;
@@ -119,7 +121,7 @@ void gestionToucheDroite ( Uint8* toucheClavier, float *vX, float *vD, float *te
 
 void gestionToucheEspace ( Uint8* toucheClavier, float *pY, float *vY, SDL_Rect *sol ){
     if ( auSol ){
-        *pY = sol -> y;
+        *pY = (sol -> y);
         *vY = 0;
         if (toucheClavier[SDLK_SPACE] && toucheEspaceEnfoncee == false){
             *vY = -vYSaut;
@@ -132,8 +134,8 @@ void gestionToucheEspace ( Uint8* toucheClavier, float *pY, float *vY, SDL_Rect 
 
 /*************************************************************/
 
-void gestionGravite ( Uint8* toucheClavier, float pY, float *vY ){
-    while ( !auSol || ! collisionSol(mur, perso) ){
+void gestionGravite ( Uint8* toucheClavier, float pY, float *vY, SDL_Rect* mur, SDL_Rect* perso  ){
+    while ( (!auSol) || (!collisionSol(mur, perso)) ){
         if(toucheClavier[SDLK_SPACE] || *vY > 0)
             *vY += graviteReduite;
         else
@@ -178,7 +180,7 @@ void effacerFenetre ( SDL_Surface* fenetre ){
 
 /*************************************************************/
 
-void MAJ( Uint8 *toucheClavier, float *pX, float *pY, float *vX, float *vY, float *tempsDec, float *tempsAcc, float *vD){
+void MAJ( Uint8 *toucheClavier, float *pX, float *pY, float *vX, float *vY, float *tempsDec, float *tempsAcc, float *vD, SDL_Rect* mur, SDL_Rect* perso, SDL_Rect *sol ){
 
     lireToucheClavier ( toucheClavier );
 
@@ -188,9 +190,9 @@ void MAJ( Uint8 *toucheClavier, float *pX, float *pY, float *vX, float *vY, floa
 
     gestionToucheDroite ( toucheClavier, vX, vD, tempsDec, tempsAcc );
 
-    gestionGravite ( toucheClavier, *pY, vY );
+    gestionGravite ( toucheClavier, *pY, vY, mur, perso  );
 
-    gestionToucheEspace( toucheClavier, pY, vY );
+    gestionToucheEspace( toucheClavier, pY, vY, sol );
 
     *pX += *vX;
     *pY += *vY;
