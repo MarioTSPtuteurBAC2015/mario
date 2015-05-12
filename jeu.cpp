@@ -1,4 +1,4 @@
-/** \file main.cpp **/
+/** \file jeu.c **/
 
 #ifdef __cplusplus
     #include <cstdlib>
@@ -7,8 +7,9 @@
 #endif
 
 #include "bibMario.h"
+#include "jeu.h"
 
-int main ( int argc, char** argv )
+void jouer ( SDL_Surface *fenetre )
 {
     Uint32 temps, tempsEcoule;
     int numkeys;
@@ -17,9 +18,15 @@ int main ( int argc, char** argv )
     float vitesseX = 0, vitesseY = 0;
     float tempsDeceleration = 0, tempsAcceleration = 0;
     float vitesseDeceleration = 0;
+    SDL_Rect* mur = NULL;
+    SDL_Rect* perso = NULL;
+    SDL_Rect *sol = NULL;
 
-    SDL_Surface* fenetre;
-    initialisationFenetre( &fenetre );
+    sol->x = 0;
+    sol->y = 0;
+    mur->x = 0;
+    mur->y = 0;
+
 
     SDL_Surface* bmp = SDL_LoadBMP("cb.bmp");
 
@@ -31,7 +38,7 @@ int main ( int argc, char** argv )
 
         initialisationTimer ( &temps );
 
-        MAJ( toucheClavier, &positionX, &positionY, &vitesseX, &vitesseY, &tempsDeceleration, &tempsAcceleration, &vitesseDeceleration);
+        MAJ( toucheClavier, &positionX, &positionY, &vitesseX, &vitesseY, &tempsDeceleration, &tempsAcceleration, &vitesseDeceleration, mur, perso, sol);
 
         dstrect.x = (int) positionX;
         dstrect.y = (int) positionY;
@@ -46,6 +53,4 @@ int main ( int argc, char** argv )
     }
 
     SDL_FreeSurface(bmp);
-    SDL_Quit();
-    return 0;
 }
