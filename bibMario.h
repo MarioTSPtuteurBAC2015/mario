@@ -83,7 +83,7 @@ void gestionToucheEspace ( Uint8* toucheClavier, float *pY, float *vY, SDL_Rect 
 \param [in] pY Ordonnée  du personnage
 \param [in, out] vY Pointeur sur la vitesse verticale du personnage
 **/
-void gestionGravite ( Uint8* toucheClavier, float pY, float *vY );
+void gestionGravite ( Uint8* toucheClavier, float pY, float *vY, SDL_Rect* mur, SDL_Rect* perso );
 
 /**
 \fn void initialisationFenetre ( SDL_Surface** fenetre )
