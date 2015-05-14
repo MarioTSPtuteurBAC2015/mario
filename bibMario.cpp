@@ -120,6 +120,7 @@ void gestionToucheDroite ( Uint8* toucheClavier, float *vX, float *vD, float *te
 /*************************************************************/
 
 void gestionToucheEspace ( Uint8* toucheClavier, float *pY, float *vY, SDL_Rect *sol ){
+    printf("%d",auSol);
     if ( auSol ){
         *pY = (sol -> y);
         *vY = 0;
@@ -135,12 +136,13 @@ void gestionToucheEspace ( Uint8* toucheClavier, float *pY, float *vY, SDL_Rect 
 /*************************************************************/
 
 void gestionGravite ( Uint8* toucheClavier, float pY, float *vY, SDL_Rect* mur, SDL_Rect* perso  ){
-    while ( (!auSol) || (!collisionSol(mur, perso)) ){
+    while ( (!auSol) && (!collisionSol(mur, perso)) ){
         if(toucheClavier[SDLK_SPACE] || *vY > 0)
             *vY += graviteReduite;
         else
             *vY += gravite;
     }
+
 }
 
 /*************************************************************/
