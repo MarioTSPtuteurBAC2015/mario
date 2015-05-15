@@ -1,8 +1,9 @@
-#ifndef _BIBMARIO_H
-#define _BIBMARIO_H 1
+#ifndef BIBMARIO_H
+#define BIBMARIO_H
 
 #include <SDL/SDL.h>
 #include <math.h>
+#include "fmap.h"
 
 #define RESX 800
 #define RESY 600
@@ -136,6 +137,6 @@ void effacerFenetre ( SDL_Surface* fenetre );
 *@param perso Pointeur sur la case du personnage
 *\param sol Pointeur sur le niveau du sol
 **/
-void MAJ( Uint8 *toucheClavier, float *pX, float *pY, float *vX, float *vY, float *tempsDec, float *tempsAcc, float *vD, SDL_Rect* mur, SDL_Rect* perso, SDL_Rect *sol);
+void MAJ( Uint8 *toucheClavier, float *pX, float *pY, float *vX, float *vY, float *tempsDec, float *tempsAcc, float *vD, SDL_Rect* mur, SDL_Rect* perso, SDL_Rect *sol,Map* m);
 
 #endif // BIBMARIO_H_INCLUDED
