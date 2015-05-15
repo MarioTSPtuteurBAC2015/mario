@@ -1,14 +1,9 @@
-#ifdef __cplusplus
-    #include <cstdlib>
-#else
-    #include <stdlib.h>
-#endif
-
-//#include <SDL/SDL.h>
+#include <SDL/SDL.h>
 #include <stdio.h>
 #include <SDL/SDL_image.h>
 #include "bibMario.h"
 #include "jeu.h"
+
 
 int main(int argc, char *argv[])
 {
@@ -21,7 +16,7 @@ int main(int argc, char *argv[])
     initialisationFenetre( &fenetre );
     SDL_WM_SetCaption("Mario TSP", NULL);
 
-    menu = IMG_Load("menumario.jnp"); // Charge l'image du menu
+    menu = IMG_Load("menumario.jpg"); // Charge l'image du menu
 
 
     positionMenu.x = 0;
@@ -70,7 +65,7 @@ int main(int argc, char *argv[])
                 break;
         }
     }
-    printf("%d",choixMenu);
+
     switch(choixMenu)
     {
         case 0:
