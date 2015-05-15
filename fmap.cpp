@@ -34,7 +34,7 @@ void ChargerMap_tileset(FILE* F,Map* m)
 	fscanf(F,"%d %d",&m->nbtilesX,&m->nbtilesY);
 	m->LARGEUR_TILE = m->tileset->w/m->nbtilesX;
 	m->HAUTEUR_TILE = m->tileset->h/m->nbtilesY;
-	m->props = malloc(m->nbtilesX*m->nbtilesY*sizeof(TileProp));
+    m->props = (TileProp*)malloc( m->nbtilesX * m->nbtilesY * sizeof(TileProp));
 	for(j=0,numtile=0;j<m->nbtilesY;j++)
 	{
 		for(i=0;i<m->nbtilesX;i++,numtile++)
@@ -44,9 +44,9 @@ void ChargerMap_tileset(FILE* F,Map* m)
 			m->props[numtile].R.x = i*m->LARGEUR_TILE;
 			m->props[numtile].R.y = j*m->HAUTEUR_TILE;
 			fscanf(F,"%s %s",buf,buf2);
-			m->props[numtile].mur = 0;
+            m->props[numtile].dur = 0;
 			if (strcmp(buf2,"mur")==0)
-				m->props[numtile].mur = 1;
+                m->props[numtile].dur = 1;
 		}
 	}
 }
@@ -58,16 +58,16 @@ void ChargerMap_level(FILE* F,Map* m)
 	char buf[CACHE_SIZE];  // un buffer, petite mémoire cache
 	fscanf(F,"%s",buf); // #level
 	fscanf(F,"%d %d",&m->nbtiles_largeur_monde,&m->nbtiles_hauteur_monde);
-	m->schema = malloc(m->nbtiles_largeur_monde*sizeof(Uint16*));
+    m->schema = (Uint16**)malloc(m->nbtiles_largeur_monde*sizeof(Uint16*));
 	for(i=0;i<m->nbtiles_largeur_monde;i++)
-		m->schema[i] = malloc(m->nbtiles_hauteur_monde*sizeof(Uint16));
+        m->schema[i] = (Uint16*)malloc(m->nbtiles_hauteur_monde*sizeof(Uint16));
 	for(j=0;j<m->nbtiles_hauteur_monde;j++)
 	{
 		for(i=0;i<m->nbtiles_largeur_monde;i++)
 		{
 			int tmp;
 			fscanf(F,"%d",&tmp);
-			if (tmp>=m->nbtilesX*m->nbtilesY)
+            if (tmp >= m->nbtilesX * m->nbtilesY)
 			{
 				printf("level tile hors limite\n");
 				SDL_Quit();
@@ -92,7 +92,7 @@ Map* ChargerMap(const char* level,int largeur_fenetre,int hauteur_fenetre)
 		system("pause");
 		exit(-1);
 	}
-	m = malloc(sizeof(Map));
+    m = (Map*)malloc(sizeof(Map));
 	ChargerMap_tileset(F,m);
 	ChargerMap_level(F,m);
 	m->largeur_fenetre = largeur_fenetre;
@@ -114,7 +114,7 @@ int AfficherMap(Map* m,SDL_Surface* screen)
 	miny = m->yscroll / m->HAUTEUR_TILE;
 	maxx = (m->xscroll + m->largeur_fenetre)/m->LARGEUR_TILE;
 	maxy = (m->yscroll + m->hauteur_fenetre)/m->HAUTEUR_TILE;
-	for(i=minx;i<=maxx;i++)
+    for(i=minx;i<=maxx;i++)
 	{
 		for(j=miny;j<=maxy;j++)
 		{
@@ -124,10 +124,11 @@ int AfficherMap(Map* m,SDL_Surface* screen)
 				numero_tile = 0;
 			else
 				numero_tile = m->schema[i][j];
-			SDL_BlitSurface(m->tileset,&(m->props[numero_tile].R),screen,&Rect_dest);
+            SDL_BlitSurface(m->tileset,0,screen,&Rect_dest);
+
 		}
 	}
-	return 0;
+    return 0;
 }
 
 /*************************************************************/
@@ -141,4 +142,25 @@ int LibererMap(Map* m)
 	free(m->props);
 	free(m);
 	return 0;
+}
+/*************************************************************/
+void moveMap(Map* m,Uint8* toucheClavier,float* vX,float* vY)
+{
+    if (toucheClavier[SDLK_LEFT])
+        m->xscroll -= *vX;
+    if (toucheClavier[SDLK_RIGHT])
+        m->xscroll += *vX;
+    if (toucheClavier[SDLK_UP])
+        m->yscroll -= *vY;
+    if (toucheClavier[SDLK_DOWN])
+        m->yscroll += *vY;
+    // limitation
+    if (m->xscroll<0)
+        m->xscroll=0;
+    if (m->yscroll<0)
+        m->yscroll=0;
+    if (m->xscroll>m->nbtiles_largeur_monde*m->LARGEUR_TILE-m->largeur_fenetre-1)
+        m->xscroll=m->nbtiles_largeur_monde*m->LARGEUR_TILE-m->largeur_fenetre-1;
+    if (m->yscroll>m->nbtiles_hauteur_monde*m->HAUTEUR_TILE-m->hauteur_fenetre-1)
+        m->yscroll=m->nbtiles_hauteur_monde*m->HAUTEUR_TILE-m->hauteur_fenetre-1;
 }
