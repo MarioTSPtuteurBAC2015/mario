@@ -1,4 +1,5 @@
 #include "jeu.h"
+#include "fmap.h"
 
 
 void jouer ( SDL_Surface *fenetre )
