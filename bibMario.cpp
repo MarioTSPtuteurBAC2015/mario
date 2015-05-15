@@ -1,6 +1,5 @@
 #include "bibMario.h"
 
-
 bool deceleration = false;
 bool toucheEspaceEnfoncee = false;
 bool toucheGaucheEnfoncee = false;
@@ -120,7 +119,6 @@ void gestionToucheDroite ( Uint8* toucheClavier, float *vX, float *vD, float *te
 /*************************************************************/
 
 void gestionToucheEspace ( Uint8* toucheClavier, float *pY, float *vY, SDL_Rect *sol ){
-    printf("%d",auSol);
     if ( auSol ){
         *pY = (sol -> y);
         *vY = 0;
@@ -182,7 +180,7 @@ void effacerFenetre ( SDL_Surface* fenetre ){
 
 /*************************************************************/
 
-void MAJ( Uint8 *toucheClavier, float *pX, float *pY, float *vX, float *vY, float *tempsDec, float *tempsAcc, float *vD, SDL_Rect* mur, SDL_Rect* perso, SDL_Rect *sol ){
+void MAJ( Uint8 *toucheClavier, float *pX, float *pY, float *vX, float *vY, float *tempsDec, float *tempsAcc, float *vD, SDL_Rect* mur, SDL_Rect* perso, SDL_Rect *sol, Map* m ){
 
     lireToucheClavier ( toucheClavier );
 
@@ -195,6 +193,9 @@ void MAJ( Uint8 *toucheClavier, float *pX, float *pY, float *vX, float *vY, floa
     gestionGravite ( toucheClavier, *pY, vY, mur, perso  );
 
     gestionToucheEspace( toucheClavier, pY, vY, sol );
+
+    moveMap(m,toucheClavier,vX, vY);
+
 
     *pX += *vX;
     *pY += *vY;
