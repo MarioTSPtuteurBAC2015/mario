@@ -3,7 +3,7 @@ OBJ = main.o jeu.o bibMario.o fmap.o
 CC = g++
 CC_OPT = -Wall
 
-MarioTSP : main.o
+MarioTSP : main.o jeu.o bibMario.o fmap.o
 	$(CC) $(LDFLAGS) $(CC_OPT) $(OBJ) -o MarioTSP 
 
 main.o : main.cpp bibMario.h jeu.h
